@@ -1,8 +1,8 @@
 <!doctype html>
-<html ng-app>
+<html ng-app="salesApp">
   <head>
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.0-beta.5/angular.min.js"></script>
-    <script src="javascripts/todo.js"></script>
+    <script src="javascripts/controllers.js"></script>
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css">
@@ -42,27 +42,25 @@
         <p class="lead">Cras justo odio, dapibus ac facilisis in, egestas eget quam. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
       </div>
 
-      <div ng-controller="TodoCtrl">
-      <table class="table table-striped">
-           <tr ng-repeat="todo in todos">
-            <td>{{todo.division}}</td>
-            <td>{{todo.sales | currency}}</td>
-          </tr>
-      </table>
+      <div ng-controller="SalesCtrl">
+        <table class="table table-striped">
+             <tr ng-repeat="sale in sales">
+              <td>{{sale.division}}</td>
+              <td>{{sale.sales | currency}}</td>
+            </tr>
+        </table>
 
-      <form class="form-inline" role="form" ng-submit="addTodo()">
-        <div class="form-group">
-          <label class="sr-only" >Division</label>
-          <input type="text" ng-model="todoDivision" class="form-control" placeholder="Division">
-        </div>
-        <div class="form-group">
-          <label class="sr-only" >Sales</label>
-          <input type="number" ng-model="todoSales" class="form-control" placeholder="Sales Amount">
-        </div>
-        <button type="submit" class="btn btn-default">Add</button>
-      </form>
-
-
+        <form class="form-inline" role="form" ng-submit="addSalesData()">
+          <div class="form-group">
+            <label class="sr-only" >Division</label>
+            <input type="text" ng-model="newSale.division" class="form-control" placeholder="Division">
+          </div>
+          <div class="form-group">
+            <label class="sr-only" >Sales</label>
+            <input type="number" ng-model="newSale.sales" class="form-control" placeholder="Sales Amount">
+          </div>
+          <button type="submit" class="btn btn-default">Add</button>
+        </form>
       </div>
     </div><!-- /.container -->
 
